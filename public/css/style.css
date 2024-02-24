@@ -1,0 +1,21 @@
+/* styles.css */
+
+body {
+    background-image: url('../images/banner.jpeg');
+        background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* Optional: Set text color for better visibility */
+    /* Other CSS styles */
+}
+@media only screen and (max-width: 600px) {
+    body {
+        background-size: contain; /* Adjust as needed for better visibility */
+        /* Other CSS styles for smaller screens */
+    }
+}
