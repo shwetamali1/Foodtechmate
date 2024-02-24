@@ -27,3 +27,6 @@ jobs:
           cd public_html/public_html
           git stash
           git pull origin production
+          composer update
+          php artisan optimize:clear
+          php artisan config:cache
