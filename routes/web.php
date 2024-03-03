@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/db', function () {
     dd(\DB::select('SHOW TABLES'));
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
