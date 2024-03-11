@@ -1,6 +1,15 @@
-<IfModule mod_rewrite.c>
+<!-- <IfModule mod_rewrite.c>
     RewriteEngine On
 
     # Send Requests To Public Folder...
     RewriteRule ^(.*)$ public/$1 [L]
+</IfModule> -->
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
 </IfModule>

@@ -13,10 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/{any}', function () {
     return view('welcome');
-});
+})->where('any', '.*');
+
 
 Route::get('/db', function () {
     dd(\DB::select('SHOW TABLES'));
 });
+
+// Comment out the default Laravel routes for authentication and home
+// Auth::routes();
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
