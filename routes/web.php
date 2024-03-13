@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/{any}', function () {
     return view('welcome');
-})->where('any', '.*');
+})->where('any', '^(?!client).*$');
 
 
-Route::get('/db', function () {
-    dd(\DB::select('SHOW TABLES'));
+Route::prefix('client')->group(function (){
+    Route::get('/testcall', [HomeController::class, 'test'])->name('test');
 });
+
+
+
+
+
+// Route::get('/db', function () {
+//     dd(\DB::select('SHOW TABLES'));
+// });
 
 // Comment out the default Laravel routes for authentication and home
 // Auth::routes();

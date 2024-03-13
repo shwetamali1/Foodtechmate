@@ -10,11 +10,27 @@ class HomeController extends Controller
      * Create a new controller instance.
      *
      * @return void
-     */
-    public function __construct()
+    //  */
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
+
+    public function test()
     {
-        $this->middleware('auth');
+        $data = [
+            'success' => true,
+            'data' => [
+                'sample_key1' => 'sample_value1',
+                'sample_key2' => 'sample_value2',
+                // Add more sample data as needed
+            ]
+        ];
+    
+        return response()->json($data);
     }
+    
 
     /**
      * Show the application dashboard.
