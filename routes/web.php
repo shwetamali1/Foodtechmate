@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
+Auth::routes();
 Route::get('/{any}', function () {
     return view('welcome');
 })->where('any', '^(?!client).*$');
@@ -30,11 +30,12 @@ Route::prefix('client')->group(function (){
 
 
 
+// routes/web.php
+
+ 
 
 // Route::get('/db', function () {
 //     dd(\DB::select('SHOW TABLES'));
 // });
 
-// Comment out the default Laravel routes for authentication and home
-// Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
