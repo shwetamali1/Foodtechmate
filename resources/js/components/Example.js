@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getControllerTest } from './services/sample';
 
 function Example() {
-    const [checkres, setServerres] = useState([]);
+const [checkres, setServerres] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,7 +18,7 @@ function Example() {
                 <div className="col-md-8">
                     <div className="card">
                         <div className="card-header">Example Component</div>
-                        <div className="card-body">
+<div className="card-body">
                             <p>I'm an example component!</p>
                             {checkres.success ? (
                                 <div>
