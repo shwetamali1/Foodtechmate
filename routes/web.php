@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Auth::routes();
+
 Route::get('/{any}', function () {
     return view('welcome');
 })->where('any', '^(?!client).*$');
@@ -26,6 +26,7 @@ Route::get('/{any}', function () {
 Route::prefix('client')->group(function (){
     Route::get('/testcall', [HomeController::class, 'test'])->name('test');
 });
+
 
 
 

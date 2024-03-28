@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+import Authuser from './Authuser';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function Home() {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+	const { logout } = Authuser(); // Use the logout function from Authuser
+    const navigate = useNavigate(); // Use useNavigate hook to get navigate function
 
+    const handleLogout = () => {
+        logout(); // Call the logout function to clear session and navigate to login
+    };
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
     return (
@@ -26,6 +33,9 @@ function Home() {
 	      </div>
 	    </div>
 	  </nav>
+	  <div className="text-center mt-4">
+                <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+            </div>
       <div className="hero-wrap">
 	    <div className="home-slider owl-carousel">
 	      <div className="slider-item">
