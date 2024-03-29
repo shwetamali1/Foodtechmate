@@ -7,8 +7,6 @@ import Register from './components/pages/Register';
 
 function AppRoutes() {
     // Move the authentication logic outside of the component
-
-
     // Check if user is authenticated before rendering routes
 
     return (
@@ -19,8 +17,7 @@ function AppRoutes() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 {/* Authuser should not be rendered as a route */}
-                
-                {/* Other routes */}
+                {/* If you have additional routes, you can add them here */}
             </Routes>
         </Router>
     );
