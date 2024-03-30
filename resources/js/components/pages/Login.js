@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Authuser from './Authuser';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate(); // Get navigate function from useNavigate
-    const { http, setToken } = Authuser({ navigate }); // Pass navigate to Authuser
+    const navigate = useNavigate(); 
+    const { http, setToken } = Authuser({ navigate }); 
 
     const submitForm = () => {
         console.log(email, password);

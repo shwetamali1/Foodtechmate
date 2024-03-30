@@ -3,9 +3,9 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export default function Authuser() {
-    const navigate = useNavigate(); // Use useNavigate hook to get navigate function
+    const navigate = useNavigate(); 
 
-    // Define getToken and getUser functions before using them
+  
     const getToken = () => {
         const tokenString = sessionStorage.getItem('token');
         if (tokenString) {
@@ -14,10 +14,10 @@ export default function Authuser() {
                 return userToken;
             } catch (error) {
                 console.error('Error parsing token data from sessionStorage:', error);
-                return null; // or handle the error as needed
+                return null; 
             }
         } else {
-            return null; // or handle the case when 'token' is not found in sessionStorage
+            return null;
         }
     };
     
@@ -31,11 +31,11 @@ export default function Authuser() {
                 return user_details;
             } catch (error) {
                 console.error('Error parsing user data from sessionStorage:', error);
-                return null; // or handle the error as needed
+                return null; 
             }
         } else {
             console.log('User data not found in session storage');
-            return null; // or handle the case when 'user' is not found in sessionStorage
+            return null; 
         }
     };
     
@@ -48,7 +48,7 @@ export default function Authuser() {
         sessionStorage.setItem('user', JSON.stringify(user));
         setToken(token);
         setUser(user);
-        navigate('/dashboard'); // Use navigate function to redirect
+        navigate('/dashboard'); 
     };
 
     const logout = () =>{
@@ -67,7 +67,7 @@ export default function Authuser() {
         setToken: saveToken,
         token,
         user,
-        getToken, // Include getToken in the returned object
+        getToken, 
         http,
         logout
     };

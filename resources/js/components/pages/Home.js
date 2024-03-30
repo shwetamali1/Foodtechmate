@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Authuser from './Authuser';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
 function Home() {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-	const { logout } = Authuser(); // Use the logout function from Authuser
-    const navigate = useNavigate(); // Use useNavigate hook to get navigate function
+	const { logout } = Authuser(); 
+    const navigate = useNavigate(); 
 
     const handleLogout = () => {
-        logout(); // Call the logout function to clear session and navigate to login
+        logout(); 
     };
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
