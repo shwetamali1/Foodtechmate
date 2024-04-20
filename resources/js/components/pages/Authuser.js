@@ -27,14 +27,11 @@ export default function Authuser() {
         if (userString && userString !== "undefined") {
             try {
                 const user_details = JSON.parse(userString);
-                console.log('Parsed user data:', user_details);
                 return user_details;
             } catch (error) {
-                console.error('Error parsing user data from sessionStorage:', error);
                 return null; 
             }
         } else {
-            console.log('User data not found in session storage');
             return null; 
         }
     };

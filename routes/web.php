@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +24,10 @@ Route::get('/{any}', function () {
 })->where('any', '^(?!client).*$');
 
 
-Route::prefix('client')->group(function (){
+ Route::prefix('client')->group(function (){
     Route::get('/testcall', [HomeController::class, 'test'])->name('test');
-});
+    Route::post('/storeGmailData',[HomeController::class, 'storeGmailUSerDetails'])->name('storeGmailUSerDetails');
+  });
 
 
 

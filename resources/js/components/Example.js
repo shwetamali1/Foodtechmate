@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { getControllerTest } from './services/sample';
+import { getControllerTest, getTestCall } from './services/sample';
 
 function Example() {
 const [checkres, setServerres] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await getControllerTest();
+            const res = await getTestCall();
             setServerres(res.data);
         };
         fetchData();

@@ -10,6 +10,7 @@
 
 <script src="{{ mix('js/app.js') }}"></script>
 </head>
+
 <body>
 </body>
 </html>
