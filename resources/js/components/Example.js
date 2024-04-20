@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getControllerTest, getTestCall } from './services/sample';
+import { getControllerTest, getTestCall } from './services/user';
 
 function Example() {
 const [checkres, setServerres] = useState([]);

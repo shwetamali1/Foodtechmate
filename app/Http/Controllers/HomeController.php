@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
 
@@ -24,7 +25,7 @@ class HomeController extends Controller
 
     public function test()
     {
-;        $data = [
+        $data = [
             'success' => true,
             'data' => [
                 'sample_key1' => 'sample_value1',
@@ -46,8 +47,18 @@ class HomeController extends Controller
             'password' => $password,
         ]);
     
-    
-        return response()->json('Success');
+        if ($token = Auth::attempt(['email' => $email, 'password' => $request->get('given_name')])) {
+            $data = ['access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'user' => auth()->user()];
+
+            return response()->json([
+                'data' => $data,
+                'email'=>$email,
+                'password' => $request->get('given_name')
+            ]);
+        }
     }
 
     /**

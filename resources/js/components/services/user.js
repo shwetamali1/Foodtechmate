@@ -19,14 +19,10 @@ export async function getTestCall() {
 
 export async function storeGmailData($data) {
     try {
-        // Make a GET request to the /testcall endpoint
         const response = await axios.post('/client/storeGmailData', $data);
-
-        // Handle the response and return the data
         return response.data;
     } catch (error) {
-        // Handle errors, such as network errors or 401 Unauthorized
         console.error('Error fetching testcall:', error);
-        throw error; // Rethrow the error for the caller to handle
+        throw error; 
     }
 }

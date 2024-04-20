@@ -3,7 +3,7 @@ import Authuser from './Authuser';
 import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
-import { storeGmailData } from '../services/sample';
+import { storeGmailData } from '../services/user';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,6 +26,7 @@ function Login() {
             });
     }
 
+
     const validateEmail = (email) => {
         const re = /\S+@\S+\.\S+/;
         return re.test(email);
@@ -36,7 +37,13 @@ function Login() {
 const handleGoogleLogin = async (credentialResponse) => {
     const decoded = jwtDecode(credentialResponse?.credential);
         const data = await storeGmailData(decoded);
-     
+        http.post('/login', { email: data.email, password: data.password })
+        .then((res) => {
+            setToken(res.data.user, res.data.access_token);
+        })
+        .catch(error => {
+            setError('Invalid email or password.');
+        });
       
 }
 
